@@ -26,7 +26,7 @@ make can-release                          # Run all CI checks (lint + test)
 src/garmin_connect_cli/
 ├── cli.py           # Main Typer app, global options
 ├── core.py          # State singleton, @with_client decorator, emit() helper
-├── client.py        # GarminClient wrapper with token management via Garth
+├── client.py        # GarminClient wrapper with token management
 ├── config.py        # XDG-compliant config (TOML), token path helpers
 ├── output.py        # Output formatters (JSON, JSONL, CSV, TSV, human tables)
 └── commands/        # Subcommand modules (each exports a Typer app)
@@ -55,7 +55,7 @@ def list_activities(client: GarminClient, limit: int = 30) -> None:
 
 **Output**: garminconnect returns JSON-serializable dicts, no model serialization needed.
 
-**Authentication**: Tokens are stored in `~/.config/garmin-connect-cli/tokens/` (managed by the Garth library). CLI preferences are in `config.toml`. Authentication uses email/password with optional MFA support.
+**Authentication**: Tokens are stored in `~/.config/garmin-connect-cli/tokens/` (managed by garminconnect). CLI preferences are in `config.toml`. Authentication uses email/password with optional MFA support.
 
 ### Testing
 
